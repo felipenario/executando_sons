@@ -63,21 +63,22 @@ class _HomeState extends State<Home> {
       appBar: AppBar(title: Text("Executando sons"),),
       body: Column(
         children: <Widget>[
+          Slider(
+              value: volume,
+              min: 0,
+              max: 1,
+              //divisions: 10,
+              onChanged: (novoVolume){
+                setState(() {
+                  volume = novoVolume;
+                });
+                audioPlayer.setVolume(novoVolume);
+              }
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Slider(
-                  value: volume,
-                  min: 0,
-                  max: 1,
-                  //divisions: 10,
-                  onChanged: (novoVolume){
-                    setState(() {
-                      volume = novoVolume;
-                    });
-                    audioPlayer.setVolume(novoVolume);
-                  }
-      ),
+
 
               Padding(
 
